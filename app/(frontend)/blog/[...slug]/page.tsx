@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
 
-export default function Archive() {
+export default function Blog() {
     return (
         <div className='max-w-5xl mx-auto'>
-            <p>route: /Archive</p>
+            <p>route: /Blog/xxxx</p>
             <Button>Click me</Button>
         </div>
     );
