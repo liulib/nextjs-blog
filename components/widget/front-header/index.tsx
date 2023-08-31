@@ -8,11 +8,11 @@ import MobileMenuButton from './mobile-menu-button';
 import MobileMenu from './mobile-menu';
 import { cn } from '@/lib/utils';
 
-function index() {
+export default function FrontHeader() {
     const [open, setOpen] = useState(false);
 
     return (
-        <header className='bg-gray-50 shadow-sm shadow-gray-300'>
+        <header className='sticky top-0 bg-gray-50 shadow-sm shadow-gray-300'>
             <nav
                 className={cn('mx-auto max-w-5xl flex items-center justify-between px-4 py-4', {
                     'md:border-none border-b border-dashed border-black/30': open,
@@ -31,5 +31,3 @@ function index() {
         </header>
     );
 }
-
-export default index;
