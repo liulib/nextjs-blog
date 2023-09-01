@@ -1,10 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import dynamic from 'next/dynamic';
-
-const ThemeProvider = dynamic(() => import('@/components/widget/theme-provider'), { ssr: false });
-
+import ThemeProvider from '@/components/widget/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
