@@ -7,7 +7,7 @@ interface FrontContainerProps {
 const FrontContainer: FC<FrontContainerProps> = ({ children }) => {
     return (
         <div className='max-w-7xl mx-auto'>
-            <div className='relative isolate'>
+            <div className='relative isolate pb-16'>
                 <svg
                     className='absolute inset-0 -z-10 h-full w-full stroke-black/5  dark:stroke-slate-700/20'
                     aria-hidden='true'
