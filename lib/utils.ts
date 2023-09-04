@@ -5,4 +5,4 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export const fetcher = (url: string) => fetch(url).then(res => res.json());
+export const fetcher = <T>(url: string): Promise<T> => fetch(url).then(res => res.json());
