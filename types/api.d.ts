@@ -70,6 +70,7 @@ export interface IArticle {
     createdAt: string;
     category: ICategory;
     tags: ITag[];
+    url: string;
 }
 
 export interface IArticleTree extends IArticle {

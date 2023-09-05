@@ -9,17 +9,13 @@ import {
 } from '@heroicons/react/24/outline';
 
 import { BaseResponse } from '@/types';
-import { IQueryArticleListRes } from '@/types/api';
+import { IArticle } from '@/types/api';
 import { fetcher } from '@/lib/utils';
 import { TimeFormat } from '@/lib/timeFormat';
 import { Badge } from '@/components/ui/badge';
 
 export const Blog = async () => {
-    const {
-        data: { list },
-    } = await fetcher<BaseResponse<IQueryArticleListRes>>(
-        'https://www.vvvv.plus/api/article/getList?page=1&pageSize=100&isDelete=0',
-    );
+    const { data } = await fetcher<BaseResponse<IArticle[]>>('https://www.vvvv.plus/api/article/getAll');
 
     return (
         <div className='max-w-5xl mx-auto pt-12'>
@@ -39,7 +35,7 @@ export const Blog = async () => {
             </div>
 
             <div className='lg:mt-15 mt-10 space-y-5 lg:space-y-5'>
-                {list.map(blog => {
+                {data.map(blog => {
                     return (
                         <div
                             key={blog.id}
@@ -50,7 +46,7 @@ export const Blog = async () => {
                             <div className='relative max-w-full rounded-[0.62rem] bg-white shadow-sm  shadow-black/5 ring-[0.8px] ring-black/5 hover:bg-gray-50 dark:bg-slate-800 dark:shadow-white/5 dark:ring-white/10 dark:hover:bg-slate-900/50'>
                                 <div className='group mx-auto p-5'>
                                     <Link
-                                        href={`blog/${blog.id}`}
+                                        href={`blog/${blog.url}`}
                                         className='relative isolate flex flex-col gap-8 lg:flex-row'
                                     >
                                         <div className='lg:aspect-[2/1] relative aspect-[16/9] sm:aspect-[2/1] lg:w-64 lg:shrink-0'>

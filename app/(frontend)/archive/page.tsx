@@ -1,17 +1,13 @@
 import Link from 'next/link';
 
 import { BaseResponse } from '@/types';
-import { IQueryArticleListRes, IArticle, IArticleTree } from '@/types/api';
+import { IArticle, IArticleTree } from '@/types/api';
 import { fetcher, groupBy } from '@/lib/utils';
 
 const Archive = async () => {
-    const {
-        data: { list },
-    } = await fetcher<BaseResponse<IQueryArticleListRes>>(
-        'https://www.vvvv.plus/api/article/getList?page=1&pageSize=100&isDelete=0',
-    );
+    const { data } = await fetcher<BaseResponse<IArticle[]>>('https://www.vvvv.plus/api/article/getAll');
 
-    const blogList: any = groupBy(list, (item: IArticle) => item.createdAt.slice(0, 4));
+    const blogList: any = groupBy(data, (item: IArticle) => item.createdAt.slice(0, 4));
     return (
         <div className='max-w-5xl mx-auto pt-12'>
             <div className='relative mx-auto max-w-4xl border-b border-dashed border-slate-500/50 px-6 py-4 md:border-y'>
@@ -25,7 +21,7 @@ const Archive = async () => {
 
             <div className='relative mx-auto max-w-4xl px-6 py-4'>
                 <span className='mb-4 block text-center text-lg leading-8 text-slate-600 dark:text-slate-500'>
-                    Nice! {list.length} posts in total. Keep on posting.
+                    Nice! {data.length} posts in total. Keep on posting.
                 </span>
             </div>
 
@@ -59,7 +55,7 @@ const Archive = async () => {
 
                         {item.map(blog => {
                             return (
-                                <Link href={`blog/${blog.id}`} className='relative mx-auto max-w-xl mt-4 block'>
+                                <Link href={`blog/${blog.url}`} className='relative mx-auto max-w-xl mt-4 block'>
                                     <span className='inline-flex items-center rounded-lg bg-white px-4 py-1.5 text-sm font-medium leading-5 text-slate-500 ring-transparent dark:bg-slate-800 hover:text-blue-500 dark:hover:text-sky-500'>{`${blog.createdAt.slice(
                                         5,
                                         10,
