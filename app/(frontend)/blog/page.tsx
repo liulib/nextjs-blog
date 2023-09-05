@@ -13,9 +13,8 @@ import { IQueryArticleListRes } from '@/types/api';
 import { fetcher } from '@/lib/utils';
 import { TimeFormat } from '@/lib/timeFormat';
 import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 
-export default async function Blog() {
+export const Blog = async () => {
     const {
         data: { list },
     } = await fetcher<BaseResponse<IQueryArticleListRes>>(
@@ -120,4 +119,6 @@ export default async function Blog() {
             </div>
         </div>
     );
-}
+};
+
+export default Blog;

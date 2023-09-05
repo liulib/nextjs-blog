@@ -72,6 +72,10 @@ export interface IArticle {
     tags: ITag[];
 }
 
+export interface IArticleTree extends IArticle {
+    children: IArticle[];
+}
+
 export interface ITopArticleRes {
     id: number;
     title: string;
