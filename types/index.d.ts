@@ -10,3 +10,9 @@ export interface Menu {
     idx: number;
     icon: any;
 }
+
+export interface ISideTitle {
+    title: string;
+    lineIndex: number;
+    indent: number;
+}

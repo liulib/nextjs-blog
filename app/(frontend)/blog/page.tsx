@@ -18,7 +18,7 @@ export const Blog = async () => {
     const { data } = await fetcher<BaseResponse<IArticle[]>>('https://www.vvvv.plus/api/article/getAll');
 
     return (
-        <div className='max-w-5xl mx-auto pt-12'>
+        <div className='max-w-5xl mx-auto'>
             <div className='relative mx-auto max-w-4xl border-b border-dashed border-slate-500/50 px-6 py-4 md:border-y'>
                 <div className='absolute -top-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-20% via-white/5 to-white to-80% dark:from-slate-800 dark:from-20% dark:via-slate-800/5 dark:to-slate-800 dark:to-80%'></div>
                 <div className='absolute -bottom-1.5 left-0 h-2 w-full bg-gradient-to-r from-white from-10% via-white/5 to-white to-90% dark:from-slate-800 dark:from-10% dark:via-slate-800/5 dark:to-slate-800 dark:to-90%'></div>
