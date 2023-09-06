@@ -4,7 +4,7 @@ import Home from '@/icons/home';
 import Archive from '@/icons/archive';
 import Blog from '@/icons/blog';
 import About from '@/icons/about';
-import Resume from '@/icons/resume';
+// import Resume from '@/icons/resume';
 
 export const menu: Menu[] = [
     {
@@ -31,10 +31,10 @@ export const menu: Menu[] = [
         idx: 4,
         icon: About,
     },
-    {
-        title: 'Resume',
-        url: '/resume',
-        idx: 5,
-        icon: Resume,
-    },
+    // {
+    //     title: 'Resume',
+    //     url: '/resume',
+    //     idx: 5,
+    //     icon: Resume,
+    // },
 ];
